@@ -57,7 +57,7 @@ static void drawSmallScale(uint32_t freq, int y)
   spr.fillCircle(scaleStart + (scaleEnd-scaleStart) * (freq - band->minimumFreq) / (band->maximumFreq - band->minimumFreq), y, 3, TH.scale_pointer);
 
   char lim[8];
-  spr.setTextColor(TH.scale_text, TH.bg);
+  spr.setTextColor(TH.scale_text);
   spr.setTextDatum(MC_DATUM);
   if(band->bandType==FM_BAND_TYPE)
     sprintf(lim, "%0.2f", band->minimumFreq/100.00);
@@ -119,7 +119,7 @@ static void drawLargeSMeter(int rssi, int strength, int x, int y)
 
 static void drawLargeSNMeter(int snr, int x, int y)
 {
-  spr.setTextColor(TH.scale_text, TH.bg);
+  spr.setTextColor(TH.scale_text);
   spr.setTextDatum(BL_DATUM);
   spr.drawString("N", x - 10, 12 + y, 2);
   spr.setTextDatum(BR_DATUM);
@@ -164,7 +164,7 @@ void drawLayoutSmeter(const char *statusLine1, const char *statusLine2)
   if(switchThemeEditor())
   {
     spr.setTextDatum(TR_DATUM);
-    spr.setTextColor(TH.text_warn, TH.bg);
+    spr.setTextColor(TH.text_warn);
     spr.drawString(TH.name, 319, BATT_OFFSET_Y + 17, 2);
   }
 
