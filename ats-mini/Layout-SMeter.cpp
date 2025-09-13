@@ -104,7 +104,7 @@ static void drawLargeSMeter(int rssi, int strength, int x, int y)
 
       // Draw the dotted line from end of previous number to start of current number
       for(int px=last_x; px<text_x-text_width/2; px++) {
-        if(~px & 1) spr.drawPixel(px, 28+y, TH.scale_line);
+        if(px & 1) spr.drawPixel(px, 28+y, TH.scale_line);
       }
       last_x = text_x + text_width/2;
     }
@@ -112,7 +112,7 @@ static void drawLargeSMeter(int rssi, int strength, int x, int y)
 
   // Draw the remaining dotted line after the last number
   for(int px=last_x; px <= x+15*16+2; px++) {
-    if(~px & 1) spr.drawPixel(px, 28+y, TH.scale_line);
+    if(px & 1) spr.drawPixel(px, 28+y, TH.scale_line);
   }
 
   spr.setTextDatum(BL_DATUM);
